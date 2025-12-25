@@ -1,0 +1,34 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><title>Pricing | HU-UK</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="canonical" href="https://hustlersuniversity.uk/pricing/">
+<link rel="stylesheet" href="/styles/main.css"></head>
+<body>
+<header class="site-header container"><nav>
+  <a href="/">HU-UK</a> · <a href="/courses/">Courses</a> · <a href="/blog/">Blog</a> · <a href="/contact/">Contact</a>
+</nav></header>
+<main class="container">
+  <h1>Pricing</h1>
+  <p class="lede">Switch to compare Monthly vs Yearly.</p>
+  <div class="toggle"><button id="btnMonthly" aria-pressed="true">Monthly</button><button id="btnYearly" aria-pressed="false">Yearly</button></div>
+  <section id="monthly" class="plans">
+    <article class="plan"><h2>Earn</h2><p class="price">£XX/mo</p><ul><li>Core access</li></ul><a class="cta" href="#earn-monthly">Choose Earn</a></article>
+    <article class="plan"><h2>Prosper</h2><p class="price">£XX/mo</p><ul><li>Everything in Earn</li></ul><a class="cta" href="#prosper-monthly">Choose Prosper</a></article>
+    <article class="plan"><h2>Conquer</h2><p class="price">£XX/mo</p><ul><li>Everything in Prosper</li></ul><a class="cta" href="#conquer-monthly">Choose Conquer</a></article>
+  </section>
+  <section id="yearly" class="plans" style="display:none">
+    <article class="plan"><h2>Earn</h2><p class="price">£XX/yr <small>(£YY/mo eq.)</small></p><ul><li>Core access</li></ul><a class="cta" href="#earn-yearly">Choose Earn — Yearly</a></article>
+    <article class="plan"><h2>Prosper</h2><p class="price">£XX/yr <small>(£YY/mo eq.)</small></p><ul><li>Everything in Earn</li></ul><a class="cta" href="#prosper-yearly">Choose Prosper — Yearly</a></article>
+    <article class="plan"><h2>Conquer</h2><p class="price">£XX/yr <small>(£YY/mo eq.)</small></p><ul><li>Everything in Prosper</li></ul><a class="cta" href="#conquer-yearly">Choose Conquer — Yearly</a></article>
+  </section>
+</main>
+<footer class="site-footer container"><p>Support: <a href="mailto:support@hustlersuniversity.uk">support@hustlersuniversity.uk</a></p><small>© <span id="year"></span> Hustlers University UK.</small></footer>
+<script>
+const m=document.getElementById('monthly'),y=document.getElementById('yearly'),bm=document.getElementById('btnMonthly'),by=document.getElementById('btnYearly');
+function showM(){m.style.display='grid';y.style.display='none';bm.setAttribute('aria-pressed','true');by.setAttribute('aria-pressed','false');location.hash='monthly';}
+function showY(){y.style.display='grid';m.style.display='none';by.setAttribute('aria-pressed','true');bm.setAttribute('aria-pressed','false');location.hash='yearly';}
+bm.onclick=showM;by.onclick=showY;if(location.hash==='#yearly')showY();else showM();
+document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+<style>.plans{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}.plan{border:1px solid #e5e5e5;border-radius:12px;padding:1rem}.toggle{display:inline-flex;gap:.5rem;margin:.75rem 0}.toggle [aria-pressed="true"]{font-weight:700;outline:2px solid #000}.cta{display:inline-block;padding:.6rem 1rem;border:1px solid #000;border-radius:8px;text-decoration:none}</style>
+</body></html>
